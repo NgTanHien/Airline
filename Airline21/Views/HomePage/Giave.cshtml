@@ -1,0 +1,106 @@
+﻿@using ProjectAirLine39.Models;
+@{
+    ViewBag.Title = "Giave";
+    Layout = "~/Views/Shared/Layoutmenu.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Your custom CSS styles for the invoice layout can go here */
+        .invoice {
+            font-family: Arial, sans-serif;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .invoice-header {
+            text-align: center;
+        }
+
+        .invoice-details {
+            margin-top: 20px;
+        }
+
+        .invoice-item {
+            margin: 10px 0;
+        }
+
+        table.invoice {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-left: auto; /* Adjust this value to move the table to the right */
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #000088;
+            text-align: center;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <table class="invoice">
+        <tr class="invoice-header">
+            <th colspan="2">Flight details</th>
+        </tr>
+        <tr class="invoice-details">
+            <td><strong>Name Flight:</strong></td>
+            <td>@Model.Flight.NameFlight</td>
+        </tr>
+        <tr class="invoice-details">
+            <td><strong>Name Ticket:</strong></td>
+            <td>@Model.Ticket.NameTicket</td>
+        </tr>
+        <tr class="invoice-details">
+            <td><strong>From Airport:</strong></td>
+            <td>@Model.Flight.fromAirport</td>
+        </tr>
+        <tr class="invoice-details">
+            <td><strong>To Airport:</strong></td>
+            <td>@Model.Flight.toAirport</td>
+        </tr>
+        <tr class="invoice-details">
+            <td><strong>Flight Date:</strong></td>
+            <td>@Model.Flight.FlightDate</td>
+        </tr>
+        <tr class="invoice-details">
+            <td><strong>Departure Time:</strong></td>
+            <td>@Model.Flight.departure_time</td>
+        </tr>
+        <tr class="invoice-details">
+            <td><strong>Arrival Time:</strong></td>
+            <td>@Model.Flight.arrival_time</td>
+        </tr>
+        <tr class="invoice-details">
+            <td><strong>Hand Luggage:</strong></td>
+            <td>@Model.Ticket.HandLuggage</td>
+        </tr>
+        <tr class="invoice-details">
+            <td><strong>Luggage:</strong></td>
+            <td>@Model.Ticket.luggage</td>
+        </tr>
+        <tr class="invoice-details">
+            <td><strong>Price:</strong></td>
+            <td>@Model.Ticket.price</td>
+        </tr>
+    </table>
+</body>
+
+</html>

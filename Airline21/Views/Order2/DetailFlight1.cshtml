@@ -1,0 +1,227 @@
+﻿@{
+    var total = ViewData["total1"];
+    var quantity = ViewData["quantity"];
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-vB8B+K8HyEcsPPfdNzudap0zCUf0YNRxntOUKotGql8R8tNee5vJm4cMt+EqdrQgQKbixSo98i5t6qjOC6fR2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+
+    .body {
+        display: flex;
+        justify-content: flex-end; /* Chuyển nội dung về phía bên phải */
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+
+
+    .content {
+        text-align: left;
+        margin-right: 20px;
+        background-color: #FFFFFF; /* White background */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+        max-width: 500px; /* Adjust the maximum width as needed */
+        width: 100%; /* Ensure responsiveness */
+        margin-left: auto; /* Move to the right */
+        margin-right: 0; /* Reset margin-right */
+    }
+
+        .content p {
+            margin: 10px 0;
+            font-size: 14px;
+            color: cornflowerblue;
+        }
+
+            .content p:first-child {
+                font-size: 30px;
+                font-weight: bold;
+                font-family: Helvetica;
+                text-align: center;
+                color: blue; /* Change the color as needed */
+            }
+
+            .content p:nth-child(2) {
+                font-size: 20px;
+                margin-top: 15px;
+                font-family: Helvetica;
+                margin-left: 15px;
+            }
+
+            .content p:nth-child(n+3) {
+                margin-top: 10px;
+                font-size: 20px;
+                font-family: Helvetica;
+                margin-left: 15px;
+            }
+
+            .content p:last-child {
+                font-size: 30px;
+                font-weight: bold;
+                color: #3399FF;
+                text-align: left;
+                font-family: Helvetica;
+            }
+
+    <style >
+
+
+    .form-detail {
+        padding-top: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+
+    .form-detail .control-custom {
+        font-size: 14px;
+        color: #333;
+        width: 100%;
+    }
+
+    .form-detail .group {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+        .form-detail .group::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+    .form-detail input {
+        display: block;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .form-detail label {
+        font-size: 14px;
+        color: #555;
+        position: absolute;
+        pointer-events: none;
+        left: 10px;
+        top: 10px;
+        transition: 0.2s ease all;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    .form-detail .bar {
+        position: relative;
+        display: block;
+    }
+
+    .bar::before,
+    .bar::after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 0;
+        position: absolute;
+        background: #2cb680;
+        transition: 0.2s ease all;
+    }
+
+    .bar::before {
+        left: 50%;
+    }
+
+    .bar::after {
+        right: 50%;
+    }
+
+    .form-detail input:focus ~ .bar::before,
+    .form-detail input:focus ~ .bar::after {
+        width: 50%;
+    }
+
+    .form-detail .bar::before,
+    .form-detail .bar::after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 0;
+        position: absolute;
+        background: #2cb680;
+        transition: 0.2s ease all;
+    }
+
+    .form-detail input:focus ~ .bar::before,
+    .form-detail input:focus ~ .bar::after {
+        width: 50%;
+    }
+
+    .form-button {
+        margin-top: 20px;
+    }
+
+    .form-detail label {
+        font-size: 14px;
+        color: #555;
+        position: absolute;
+        pointer-events: none;
+        left: 10px;
+        top: 10px;
+        transition: 0.2s ease all;
+    }
+
+    .form-detail input:focus ~ label,
+    .form-detail input:valid ~ label {
+        top: 0;
+        color: #2cb680;
+        font-size: 12px;
+    }
+
+    .flight-details {
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 14px;
+        color: #555;
+        background-color: #f0f8ff; /* Choose your desired background color */
+        border-radius: 8px;
+    }
+
+    .detail-label {
+        font-weight: bold;
+        color: #3399FF; /* Green color for the "Total:" label */
+        margin-right: 10px;
+    }
+
+    .total-label {
+        color: #3399FF; /* Green color for the "Subtotal" label */
+        font-weight: bold;
+    }
+</style>
+<div>
+
+
+    <div class="content">
+
+        <p>TRIP DETAILS 1</p>
+        <p style="display: flex; align-items: center;margin-left:25px;">
+
+
+            <span>@Model.fromAirport</span>
+            <span style="margin-right: 5px;">&#9992;</span> <!-- Airplane icon -->
+            <span>@Model.toAirport</span>
+
+        </p>
+        <p><span style="margin-left: 10px;">@Model.FlightDate</span></p>
+        <p style="margin-left:30px">Adults:  @quantity</p>
+        <p class="flight-details">
+            <span class="detail-label">Total:</span>
+
+            <span class="total-amount">@total</span>
+        </p>
+    </div>
+
+</div>
